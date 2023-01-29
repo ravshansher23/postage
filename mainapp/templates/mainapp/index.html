@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if form %}
+<h1>Осуществить рассылку</h1>
+<form method="post">
+    {% csrf_token %}
+    
+    <button type="submit">Отправить</button>
+</form>
+{% endif %}
+{% endblock content %}

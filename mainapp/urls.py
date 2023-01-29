@@ -7,6 +7,6 @@ app_name = MainappConfig.name
 
 urlpatterns = [
     url("", views.MainPageView.as_view(), name="main_page"),
-    url("mail/", views.ContactsPageView.as_view(), name="contacts"),
+
 
 ]

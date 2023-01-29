@@ -63,7 +63,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,9 +125,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [(
     os.path.join(BASE_DIR, 'static') # build appropriate path
-)
+)]
 
 STATIC_URL = '/static/'
 
@@ -145,13 +145,17 @@ CELERY_RESULT_BACKEND = "redis://localhost:6379"
 # EMAIL_HOST = "localhost"
 # EMAIL_PORT = "25"
 
-# For debugging: python -m smtpd -n -c DebuggingServer localhost:25
-# EMAIL_HOST_USER = "django@geekshop.local"
-# EMAIL_HOST_PASSWORD = "geekshop"
-# EMAIL_USE_SSL = False
-# If server support TLS:
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # EMAIL_USE_TLS = True
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_HOST_USER = "ravshan.sher96@gmail.com"
+# EMAIL_HOST_PASSWORD = "follower12!"
+# EMAIL_PORT = 587
+# APPLICATION_EMAIL = 'Admin<ravshan.sher96@gmail.com'
+# DEFAULT_FROM_EMAIL = 'Admin<ravshan.sher96@gmail.com'
+# EMAIL_USE_SSL = False
+
 
 # Email as files for debug
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_BACKEND =  "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = "var/email-messages/"
