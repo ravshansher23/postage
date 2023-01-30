@@ -8,9 +8,15 @@ from django.views.generic import TemplateView
 from mainapp import models as mainapp_models
 from mainapp import tasks as mainapp_tasks
 from mainapp import forms as mainapp_forms
+from django.http import HttpResponse
+from PIL import Image
 
-
-
+def image_load(request):
+    print("\nImage Loaded\n")
+    red = Image.new('RGB', (1, 1))
+    response = HttpResponse(content_type="image/png")
+    red.save(response, "PNG")
+    return response
 class MainPageView(TemplateView):
     template_name = "mainapp/index.html"
     def get_context_data(self, **kwargs):

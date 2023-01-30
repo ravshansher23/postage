@@ -8,8 +8,7 @@ class Followers(models.Model):
     first_name = models.CharField(max_length=256, verbose_name="First_name")
     last_name = models.CharField(max_length=256, verbose_name="Last_name")
     birthday = models.DateField(verbose_name="Birthday", null=False)
+    is_open = models.BooleanField(verbose_name="is_open", default=False)
 
     def __str__(self):
         return self.email
-
-

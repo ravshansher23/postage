@@ -10,7 +10,7 @@ celery_app.config_from_object("django.conf:settings", namespace="CELERY")
 celery_app.conf.beat_schedule = {
     'every_15_seconds': {
         'task': 'mainapp.tasks.send_email_15',
-        'schedule': 15,
+        'schedule': 60,
 
     }
 }

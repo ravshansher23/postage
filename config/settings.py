@@ -147,20 +147,19 @@ CELERY_TIMEZONE = 'Asia/Kolkata'
 # EMAIL_HOST = "localhost"
 # EMAIL_PORT = "25"
 
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = "smtp.gmail.com"
-# EMAIL_HOST_USER = "ravshan.sher96@gmail.com"
-# EMAIL_HOST_PASSWORD = "follower12!"
-# EMAIL_PORT = 587
-# APPLICATION_EMAIL = 'Admin<ravshan.sher96@gmail.com'
-# DEFAULT_FROM_EMAIL = 'Admin<ravshan.sher96@gmail.com'
-# EMAIL_USE_SSL = False
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "ravshan.sher96@gmail.com"
+EMAIL_HOST_PASSWORD = "mollkgocvyyvkvip"
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'Admin<ravshan.sher96@gmail.com'
+EMAIL_USE_SSL = False
 
 
 # Email as files for debug
-EMAIL_BACKEND =  "django.core.mail.backends.filebased.EmailBackend"
-EMAIL_FILE_PATH = "var/email-messages/"
+# EMAIL_BACKEND =  "django.core.mail.backends.filebased.EmailBackend"
+# EMAIL_FILE_PATH = "var/email-messages/"
 
 
 CELERYBEAT_SCHEDULE = {

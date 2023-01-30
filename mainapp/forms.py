@@ -6,6 +6,4 @@ class MailForm(forms.Form):
     user_id = forms.IntegerField(widget=forms.HiddenInput)
     countdown = forms.NumberInput()
 
-    # def __init__(self, user, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
 
