@@ -4,7 +4,7 @@ from mainapp import models as mainapp_models
 
 class MailForm(forms.Form):
     user_id = forms.IntegerField(widget=forms.HiddenInput)
-    messege = forms.CharField(max_length=200)
+    countdown = forms.NumberInput()
 
     # def __init__(self, user, *args, **kwargs):
     #     super().__init__(*args, **kwargs)

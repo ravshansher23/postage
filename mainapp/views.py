@@ -21,15 +21,14 @@ class MainPageView(TemplateView):
 
     def post(self, *args, **kwargs):
         name = mainapp_models.Followers.objects.all()
+        countdown = 5
         for item in name:
             obj = mainapp_models.Followers.objects.get(pk=item.pk)
             email = obj.email
             names = obj.first_name
+            
             mainapp_tasks.send_email.delay(
-                {
-                    "name": names,
-                    "email": email
-
-                }
-            )
+                {"name": names, 
+                "email": email}
+                )
         return HttpResponseRedirect(reverse_lazy("mainapp:main_page"))    

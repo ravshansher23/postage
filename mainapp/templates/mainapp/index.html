@@ -4,6 +4,7 @@
 <h1>Осуществить рассылку</h1>
 <form method="post">
     {% csrf_token %}
+    {{ form }}
     
     <button type="submit">Отправить</button>
 </form>

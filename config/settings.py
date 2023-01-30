@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
+from __future__ import absolute_import
 import os
+from celery.schedules import crontab
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp',
     "debug_toolbar",
+    "django_celery_beat",
 ]
 
 MIDDLEWARE = [
@@ -135,7 +137,7 @@ STATIC_URL = '/static/'
 
 CELERY_BROKER_URL = "redis://localhost:6379"
 CELERY_RESULT_BACKEND = "redis://localhost:6379"
-
+CELERY_TIMEZONE = 'Asia/Kolkata'
 
 # Read about sending email:
 #   https://docs.djangoproject.com/en/3.2/topics/email/
@@ -159,3 +161,11 @@ CELERY_RESULT_BACKEND = "redis://localhost:6379"
 # Email as files for debug
 EMAIL_BACKEND =  "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = "var/email-messages/"
+
+
+CELERYBEAT_SCHEDULE = {
+'periodic_send_email': {
+    'task': 'mainapp.tasks.send_email',
+    'schedule': crontab(),
+},
+}
